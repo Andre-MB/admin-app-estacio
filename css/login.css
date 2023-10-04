@@ -1,3 +1,5 @@
+@import url(LoginRespon.css); 
+
 * {
     padding: 0;
     margin: 0;
@@ -12,7 +14,7 @@
 
 .root {
     display: flex;
-    height: 100vh;
+    height: 99vh;
     width: 100%;
     background-color: orange;
     justify-content: space-between;
@@ -34,7 +36,7 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    width: 40em;
+    width: 60em;
     background-color: #fff;
 }
 
@@ -45,7 +47,7 @@
     margin-bottom: 0.5em;
 }
 
-.form-container-inputs {
+.form-contol{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,7 +56,8 @@
     height: 10em;
 }
 
-.form-container-inputs p {
+.form-contol p {
+    
     font-family: 'Staatliches-Regular';
     color: #000;
     font-size: 1.2em;
@@ -72,16 +75,20 @@
     border: 0px;
 }
 
-.form-container-inputs input::placeholder {
-    color: #000;
+.form-container input::placeholder {
+    
+    color: #fff;
 }
 
-.form-container p {
+.form-contol p {
+    
     text-align: left;
 }
 
 .forgot-container {
     text-align: right;
+    font: icon;
+    
 }
 
 .button-container {
@@ -94,8 +101,8 @@
     color: #fff;
     font-size: 2em;
     background-color: #06dacc;
-    width: 70%;
-    height: 2em;
+    width: 80%;
+    height: 1.6em;
     border: 0;
     border-radius: 2em;
     margin-top: 1em;
