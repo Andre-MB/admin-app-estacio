@@ -1,0 +1,109 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: 'Staatliches-Regular';
+    src: url('../fonts/Staatliches-Regular.ttf');
+}
+
+.root {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background-color: orange;
+    justify-content: space-between;
+}
+
+.container-left {
+    height: 100%;
+    width: 100%;
+    background-color: red;
+}
+
+.container-left img {
+    height: 100%;
+    width: 100%;
+}
+
+.container-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 40em;
+    background-color: #fff;
+}
+
+.form-container h1 {
+    color: #00639b;
+    font-family: 'Staatliches-Regular';
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+.form-container-inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    width: 20em;
+    height: 10em;
+}
+
+.form-container-inputs p {
+    font-family: 'Staatliches-Regular';
+    color: #000;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.form-container-inputs input {
+    width: 100%;
+    height: 2.5em;
+    border-radius: 2em;
+    background-color: #93e6ea;
+    padding: 0 1em;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    border: 0px;
+}
+
+.form-container-inputs input::placeholder {
+    color: #000;
+}
+
+.form-container p {
+    text-align: left;
+}
+
+.forgot-container {
+    text-align: right;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-container button {
+    color: #fff;
+    font-size: 2em;
+    background-color: #06dacc;
+    width: 70%;
+    height: 2em;
+    border: 0;
+    border-radius: 2em;
+    margin-top: 1em;
+}
+
+.register-account {
+    display: flex;
+    margin-top: 2em;
+    justify-content: center;
+    align-items: center;
+}
