@@ -1,0 +1,30 @@
+:root{
+    /* CORES */
+    --corverde: #00AA9F;
+    --corinpt: #93e6ea;
+    --corbnt: #06dacc;
+    --corazul: #00639b;
+    --corbranco: #fff;
+    --corcinza: #C7C7C7;
+    --corpreta:  #000000;
+
+    /* FONTS */
+    --Inder : "Inder";
+    --Staat : "Staatliches-Regular";
+    --IBM: "IBMPlexMono-Regular";
+    
+}
+
+@font-face {
+    font-family: 'Staatliches-Regular';
+    src: url('../fonts/Staatliches-Regular.ttf');
+    
+}
+@font-face{
+    font-family: 'Inder';
+    src: url("../fonts/Inder-Regular.ttf");
+}
+@font-face {
+    font-family: 'IBMPlexMono-Regular' ;
+    src: url("../fonts/IBMPlexMono-Regular.ttf");
+}
