@@ -7,6 +7,9 @@
     --corbranco: #fff;
     --corcinza: #C7C7C7;
     --corpreta:  #000000;
+    --color-register-step-selected: #014440;
+    --color-register-step-current: #00AA9F;
+    --color-bg-input-register: #87D0D3;
 
     /* FONTS */
     --Inder : "Inder";
