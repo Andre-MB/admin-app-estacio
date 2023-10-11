@@ -10,74 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!---->
     <link rel="stylesheet" href="../css/padroes.css">
-    <style>
-        .bg-main-content {
-            height: 100vh; 
-            background: linear-gradient(to bottom, #3CB5DB, #0988AF);
-        }
-        .bg-user-form {
-            background-color: white;
-            border-radius: 1em;
-            height: 60em;
-            width: 70em;
-        }
-        #current-step-user-counter {
-            color: #000;
-            text-align: center;
-            font-weight: thin;
-            font-size: 2.3em;
-        }
-
-        .rect-user {
-            background-color: var(--color-register-step-current);
-            height: 1em;
-            width: 6em;
-            margin: 0 4em;
-        }
-
-        .rect-user-active {
-            background-color: var(--color-register-step-selected);
-        }
-
-        .form-container {
-            height: 85%;
-            width: 100%;
-
-        }
-
-        .parent-container-input-form {
-            width: 95%;
-            height: 85%;
-        }
-
-        .parent-container-input-form p {
-            font-size: 2em;
-            font-weight: thin;
-        }
-
-        form input {
-            height: 2em;
-            width: 100%;
-            border-radius: 0.5em;
-            border: 0;
-            padding: 0 1em;
-            background: var(--color-bg-input-register);
-        }
-
-        form input[type="text"] {
-            font-size: 2.5em;
-        }
-
-        form input::placeholder {
-            color: #fff;
-        }
-
-        form p {
-            margin-bottom: -1px;
-        }
-
-        
-    </style>
+    <link rel="stylesheet" href="../css/register.css">
 </head>
 <body>
     <div class="d-flex align-items-center justify-content-center bg-main-content">
@@ -92,7 +25,16 @@
                                 <p>Nome Completo: </p>
                                 <input type="text" name="" id="" placeholder="Raimundo">
                             </section>
-                            <section id="user_emaii"></section>
+                            <section id="user_passw">
+                                <p>Senha: </p>
+                                <input type="text" name="" id="" placeholder="*******">
+                            </section>
+                            <div class="container grid">
+                                <div class="row">
+                                    <div class="col"></div>
+                                    <div class="col"></div>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>

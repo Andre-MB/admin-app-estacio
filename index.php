@@ -1,5 +1,4 @@
 <?php
-  echo "Hello World";
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -34,7 +33,7 @@
                     <button>Entrar</button>
                 </div>
                 <div class="register-account">
-                    <p>Não tem uma conta ? <a href="./pages/register.html">Inscreva-se</a></p>
+                    <p>Não tem uma conta ? <a href="./pages/register.php">Inscreva-se</a></p>
                 </div>
             </div>
         </div>

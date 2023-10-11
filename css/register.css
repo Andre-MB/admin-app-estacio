@@ -1,0 +1,71 @@
+.bg-main-content {
+    height: 100vh; 
+    background: linear-gradient(to bottom, #3CB5DB, #0988AF);
+}
+.bg-user-form {
+    background-color: white;
+    border-radius: 1em;
+    height: 40em;
+    width: 50em;
+}
+#current-step-user-counter {
+    color: #000;
+    text-align: center;
+    font-weight: thin;
+    font-size: 2.3em;
+}
+
+.rect-user {
+    background-color: var(--color-register-step-current);
+    height: 0.5em;
+    width: 5em;
+    margin: 0 2em;
+}
+
+.rect-user-active {
+    background-color: var(--color-register-step-selected);
+}
+
+.form-container {
+    height: 85%;
+    width: 100%;
+
+}
+
+.parent-container-input-form {
+    width: 95%;
+    height: 85%;
+}
+
+.parent-container-input-form p {
+    font-size: 1em;
+    font-weight: thin;
+}
+
+form input {
+    height: 1.4em;
+    width: 100%;
+    border-radius: 0.5em;
+    border: 0;
+    padding: 1em;
+    margin-bottom: 0.5em;
+    background: var(--color-bg-input-register);
+}
+
+form input[type="text"] {
+    font-size: 1.5em;
+}
+
+form input::placeholder {
+    color: #fff;
+}
+
+form p {
+    margin-bottom: -1px;
+}
+
+.grid .row {
+    height: 1em;
+    width: 1em;
+    background-color: black;
+}
