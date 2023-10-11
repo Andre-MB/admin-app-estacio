@@ -5,7 +5,7 @@
 .bg-user-form {
     background-color: white;
     border-radius: 1em;
-    height: 40em;
+    height: 33em;
     width: 50em;
 }
 #current-step-user-counter {
@@ -43,7 +43,7 @@
 }
 
 form input {
-    height: 1.4em;
+    color: #285057;
     width: 100%;
     border-radius: 0.5em;
     border: 0;
@@ -52,12 +52,8 @@ form input {
     background: var(--color-bg-input-register);
 }
 
-form input[type="text"] {
-    font-size: 1.5em;
-}
-
 form input::placeholder {
-    color: #fff;
+    color: #285057;
 }
 
 form p {
@@ -69,3 +65,23 @@ form p {
     width: 1em;
     background-color: black;
 }
+
+.contain2 {
+    display: flex;
+    justify-content:space-between;
+}
+
+.contain2 input{
+    width: 22em;
+}
+
+#next_button {
+    text-align: center;
+    color: #fff;
+    background-color: var(--corbnt);
+    border: none;
+    border-radius: 5em;
+    width: 6em;
+    height: 3em;
+}
+

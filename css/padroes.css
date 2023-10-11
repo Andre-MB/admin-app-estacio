@@ -16,6 +16,8 @@
     --Staat : "Staatliches-Regular";
     --IBM: "IBMPlexMono-Regular";
     
+    /* TAMANHOS */
+    --size-height-input: 1.4em;
 }
 
 @font-face {

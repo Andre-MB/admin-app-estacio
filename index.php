@@ -33,7 +33,7 @@
                     <button>Entrar</button>
                 </div>
                 <div class="register-account">
-                    <p>Não tem uma conta ? <a href="./pages/register.php">Inscreva-se</a></p>
+                    <p>Não tem uma conta ? <a href="./pages/formStep1.php">Inscreva-se</a></p>
                 </div>
             </div>
         </div>
