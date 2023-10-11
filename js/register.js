@@ -1,4 +1,20 @@
 $(document).ready(function() {
+    const hoverButtonCSS = {
+        "mouseIn": {
+            "color": "#000",
+            "font-weight": "bolder"
+        },
+    }
+
+    $("#next_button").hover(function() {
+        console.log("hover");
+        $(this).removeClass("next_button_out");
+        $(this).addClass("next_button_in")
+    }, function() {
+        $(this).removeClass("next_button_in");
+        $(this).addClass("next_button_out");
+    })
+
     let currentStep = 1;
     let counter = 1;
     var dataUser = {

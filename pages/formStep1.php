@@ -60,8 +60,8 @@
                                     </div>           
                                 </div>                          
                         </div>
-                        <div class="d-flex align-items-center justify-content-center container-fluid">
-                            <button id="next_button" class="d-flex align-items-center justify-content-center" type="submit" name="btnForm1">Próximo</button>
+                        <div class="d-flex align-items-center justify-content-end container-fluid">
+                            <button id="next_button" class="d-flex align-items-center justify-content-center next_button_in" type="submit" name="btnForm1">Próximo</button>
                         </div>             
                     </form>
                 </div>

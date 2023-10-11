@@ -12,7 +12,7 @@
     color: #000;
     text-align: center;
     font-weight: thin;
-    font-size: 2.3em;
+    font-size: 1.6em;
 }
 
 .rect-user {
@@ -75,13 +75,23 @@ form p {
     width: 22em;
 }
 
-#next_button {
+.next_button_in {
     text-align: center;
-    color: #fff;
+    color: #000;
     background-color: var(--corbnt);
     border: none;
     border-radius: 5em;
-    width: 6em;
+    width: 8em;
     height: 3em;
 }
 
+.next_button_out {
+    text-align: center;
+    background-color: var(--corbnt);
+    color: #fff;
+    border: none;
+    border-radius: 5em;
+    width: 8em;
+    height: 3em;
+    font-weight: bolder;
+}
