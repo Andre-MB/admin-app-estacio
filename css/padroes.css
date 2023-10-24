@@ -1,3 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
 :root{
     /* CORES */
     --corverde: #00AA9F;
@@ -5,6 +12,7 @@
     --corbnt: #06dacc;
     --corazul: #00639b;
     --corbranco: #fff;
+    --cortextobtn: #285057;
     --corcinza: #C7C7C7;
     --corpreta:  #000000;
     --color-register-step-selected: #014440;

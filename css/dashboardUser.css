@@ -1,0 +1,97 @@
+.root {
+    display: flex;
+    flex-direction: row;
+}
+
+.panel-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    background-color: var(--corazul);
+    width: 19em;
+    height: 100vh;
+}
+
+.profile-user {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4em;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    height: 10em;
+    width: inherit;
+    user-select: none;
+}
+
+.profile-user img {
+    width: 7em;
+    height: 7em;
+}
+
+.profile-user p {
+    margin-top: 1em;
+}
+
+.options-user img {
+    height: 4em;
+    width: 4em;
+    margin-left: 1em;
+}
+
+.options-user p {
+    font-size: 1.5em;
+    padding-left: 1em;
+}
+
+.home-opt, .info-opt, .profile-opt {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    margin: 1em 0;
+    cursor: pointer;
+}
+
+.content-right {
+    display: flex;
+    align-items: start;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-content img {
+    margin-top: 5em;
+    margin-bottom: 2em;
+    width: 35em;
+    height: 20em;
+}
+
+.main-content h1 {
+    margin-bottom: 0.5em;
+}
+
+.info-data {
+    width: 50vw;
+    height: 2em;
+}
+
+.main-content p {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.main-content span {
+    font-weight: bolder;
+}
+
+.opt-selected {
+    background-color: var(--corbnt);
+}

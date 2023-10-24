@@ -14,8 +14,9 @@ $(document).ready(function() {
         $(this).removeClass("next_button_in");
         $(this).addClass("next_button_out");
     })
-
-    let currentStep = 1;
+    const currentURL = window.location.pathname;
+    
+    let currentStep = parseInt(currentURL.match(/\d+/)[0]);
     let counter = 1;
     var dataUser = {
         "formStep1": {
@@ -68,6 +69,7 @@ $(document).ready(function() {
                             dataUser.formStep1[inputIdShow] = inputValueShow;
                         }
                         isAllFields = false;
+                        window.location.href = "./dashboardUser.php";
                     }
                 }
                 console.log(dataUser);

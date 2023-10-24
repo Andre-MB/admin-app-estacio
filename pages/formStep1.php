@@ -31,37 +31,37 @@
                         <div class="upper_personal_data_user">
                             <section>
                                 <p>Nome Completo: </p>
-                                <input type="text" name="" id="user_complete_name" placeholder="Raimundo" required>
+                                <input type="text" id="user_complete_name" placeholder="Raimundo" required>
                             </section>
                             <section>
                                 <p>E-mail: </p>
-                                <input type="email" name="" id="user_mail" placeholder="example@gmail.com" required>
+                                <input type="email" id="user_mail" placeholder="example@gmail.com" required>
                             </section>
                                 <div class= "contain2">
                                     <div>                                    
                                         <section>
                                             <p>Senha: </p>
-                                            <input type="password" name="" id="user_passw" placeholder="*******" required>
+                                            <input type="password" id="user_passw" placeholder="*******" required>
                                         </section>
                                         <section class="senhas">                                        
                                             <p>Confimar senha:</p>
-                                            <input type="password" name="" id="user_passw_confirm" placeholder="*******" required>
+                                            <input type="password" id="user_passw_confirm" placeholder="*******" required>
                                         </section>
                                     </div>
                                     <div>
                                     <section>
                                             <p>Matrícula: </p>
-                                            <input type="text" name="" id="user_register" placeholder="Matrícula" required>
+                                            <input type="text" id="user_register" placeholder="Matrícula" required>
                                     </section>
                                     <section>
                                             <p>Data de nascimento: </p>
-                                            <input type="date" name="" id="user_date" required>
+                                            <input type="date" id="user_date" required>
                                     </section>
                                     </div>           
                                 </div>                          
                         </div>
                         <div class="d-flex align-items-center justify-content-end container-fluid">
-                            <button id="next_button" class="d-flex align-items-center justify-content-center next_button_in" type="submit" name="btnForm1">Próximo</button>
+                            <button id="next_button" class="d-flex align-items-center justify-content-center next_button_in" type="submit" name="btnForm1">Finalizar</button>
                         </div>             
                     </form>
                 </div>

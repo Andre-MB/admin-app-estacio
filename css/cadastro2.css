@@ -1,10 +1,13 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
+.bg-main-content{
+    height: 100vh; 
+    background: linear-gradient(to bottom, #3CB5DB, #0988AF);
 }
-
+.bg-user-form{
+    background-color: white;
+    border-radius: 1em;
+    height: 33em;
+    width: 50em;
+}
 .container{
     background: linear-gradient(#06DACC, #00AACE);
     display: flex;
@@ -18,4 +21,13 @@
     width: 80%;
     height: 80%;
     border-radius: 40px;
+}
+
+#picture_input{
+    display: none;
+}
+
+.picture{
+    width: 400px;
+    background:#eee;
 }
