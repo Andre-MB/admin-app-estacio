@@ -6,9 +6,8 @@ include('../php/connection.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel do usuário</title>
-    <link rel="stylesheet" href="../css/dashboardUser.css"/>
-    <link rel="stylesheet" href="../css/padroes.css"/>
+    <title>GV: Painel do usuário</title>
+    <link rel="stylesheet" href="../../css/dashboard.css"/>
     <script
 		src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
 		integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
@@ -19,20 +18,20 @@ include('../php/connection.php');
     <div class="root">
         <div class="panel-left">
             <div class="profile-user">
-                <img src="../images/profileIcon.png" alt="Perfil do Usuário">
+                <img src="../../images/profileIcon.png" alt="Perfil do Usuário">
                 <p>[Nome do Usuário]</p>
             </div>
             <div class="options-user">
                 <div class="home-opt opt-selected opt-panel" id="homeOption">
-                    <img src="../images/iconHome.png" alt="">
+                    <img src="../../images/iconHome.png" alt="">
                     <p>Inicio</p>
                 </div>
                 <div class="info-opt opt-panel" id="infoOption">
-                    <img src="../images/aboutIcon.png" alt="">
+                    <img src="../../images/aboutIcon.png" alt="">
                     <p>Informações</p>
                 </div>
                 <div class="profile-opt opt-panel" id="profileOption">
-                    <img src="../images/profileIcon.png" alt="">
+                    <img src="../../images/profileIcon.png" alt="">
                     <p>Perfil</p>
                 </div>
             </div>
@@ -40,7 +39,7 @@ include('../php/connection.php');
         <div class="content-right">
             <div id="home-content" class="content-data">
                 <div class="main-content">
-                    <img src="../images/groupWorkers.png" alt="">
+                    <img src="../../images/groupWorkers.png" alt="">
                     <h3>Seja bem-vindo</h3>
                     <h1>[Nome de usuário]</h1>
                     <div class="info-data">

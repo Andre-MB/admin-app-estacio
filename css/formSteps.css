@@ -1,3 +1,39 @@
+@import url(padroes.css);
+
+.title-notific-err {
+    background-color: red;
+    width: 100%;
+    color: #fff;
+    height: 3em;
+}
+
+.err-notific {
+    display: none;
+    width: 20em;
+    position: absolute;
+    border-radius: 2em;
+}
+
+.err-content-notific {
+    border: 1px solid #000;
+    width: inherit;
+    background-color: #fff;
+}
+
+.err-content-notific p {
+    margin-top: 0.5em;
+    text-align: center;
+    height: inherit;
+    overflow-wrap: break-word;
+    inline-size: 15em;
+}
+
+.err-notific img {
+    width: 3em;
+    height: 3em;
+    margin-right: 0.5em;
+}
+
 .bg-main-content {
     height: 100vh; 
     background: linear-gradient(to bottom, #3CB5DB, #0988AF);
@@ -29,7 +65,15 @@
 .form-container {
     height: 85%;
     width: 100%;
+    display: none !important;
+}
 
+.form-container.disabled {
+    display: none !important;
+}
+
+.form-container.active {
+    display: flex !important;
 }
 
 .parent-container-input-form {
@@ -77,7 +121,7 @@ form p {
 
 .next_button_in {
     text-align: center;
-    color: #000;
+    color: #fff;
     background-color: var(--corbnt);
     border: none;
     border-radius: 5em;
@@ -134,3 +178,42 @@ input[type="radio"] {
 .btnRadioUserSelect {
     background-color: red;
 }
+
+.input-box-passw {
+    display: flex;
+    width: 22em;
+    align-items: center;
+    margin: auto;
+    background-color: var(--color-bg-input-register);
+}
+
+.input-box-passw svg {
+    cursor: pointer;
+}
+
+.margin-fix {
+    margin-top: 0.6em;
+}
+
+#user_passw_confirm, #user_passw {
+    outline: none;
+    width: 100%;
+    height: 100%;
+    padding: 10px 10px;
+    background-color: var(--color-bg-input-register);
+    border: none;
+}
+
+#formStep1_item, #formStep2_item {
+    opacity: 1;
+    margin-left: 0em;
+}
+/*form input {
+    color: var(--cortextobtn);
+    width: 100%;
+    border-radius: 0.5em;
+    border: 0;
+    padding: 1em;
+    margin-bottom: 0.5em;
+    background: var(--color-bg-input-register);
+}*/

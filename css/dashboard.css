@@ -1,3 +1,5 @@
+@import url("./padroes.css");
+
 .root {
     display: flex;
     flex-direction: row;
@@ -44,7 +46,7 @@
     padding-left: 1em;
 }
 
-.home-opt, .info-opt, .profile-opt {
+.opt-panel {
     display: flex;
     align-items: center;
     color: #ffffff;
@@ -58,6 +60,17 @@
     width: 100vw;
     height: 100vh;
     justify-content: center;
+}
+
+.content-data {
+    display: none;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-data.show-content {
+    display: flex;
 }
 
 .main-content {
@@ -94,4 +107,12 @@
 
 .opt-selected {
     background-color: var(--corbnt);
+}
+
+.bar-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: inherit;
+    background-color: red;
 }
