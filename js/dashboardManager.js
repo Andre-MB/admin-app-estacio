@@ -2,7 +2,8 @@ var currentOption = 0;
 
 const contentArr = [
     "#homeOption-content", 
-    "#infoOption-content", 
+    "#infoOption-content",
+    "#searchOption-content",
     "#profileOption-content"
 ];
 
@@ -29,3 +30,15 @@ $(document).ready(function() {
     })
 })
 
+//Buttons Manager
+
+//Add Manager Button
+$("#addManagerBtn").click(function() {
+    $("#popUps").css({'display': 'flex'})
+    $("#popOverlay").css({'display': 'flex'})
+})
+
+$("#closeBtnAddManager").click(function() {
+    $("#popUps").css({'display': 'none'})
+    $("#popOverlay").css({'display': 'none'})
+})

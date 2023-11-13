@@ -11,5 +11,4 @@ try {
 } catch(PDOException $err) {
     die("connection failed: " . $err->getMessage());
 }
-
 ?>

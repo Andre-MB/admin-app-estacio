@@ -54,8 +54,8 @@
 .rect-user {
     background-color: var(--color-register-step-current);
     height: 0.5em;
-    width: 5em;
-    margin: 0 2em;
+    width: 3em;
+    margin: 0 1em;
 }
 
 .rect-user-active {
@@ -167,8 +167,8 @@ form p {
 }
 
 input[type="radio"] {
-    width: 3em;
-    height: 3em;
+    width: 2em;
+    height: 1.4em;
 }
 
 .roleUserSelect input {
@@ -208,12 +208,3 @@ input[type="radio"] {
     opacity: 1;
     margin-left: 0em;
 }
-/*form input {
-    color: var(--cortextobtn);
-    width: 100%;
-    border-radius: 0.5em;
-    border: 0;
-    padding: 1em;
-    margin-bottom: 0.5em;
-    background: var(--color-bg-input-register);
-}*/
