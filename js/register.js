@@ -13,11 +13,50 @@ function showErr(text) {
     });
 }
 
-function insertDataJson(inputID, JSONData, formStepKey) {
+function insertDataJson(inputID, JSONData, formStepKey, postPHPURL, postToSession) {
     for(var insertCounter = 0; insertCounter < inputID.length; insertCounter++) {
         var inputIdShow = inputID[insertCounter];
         var inputValueShow = $('#' + inputIdShow).val();
         JSONData[formStepKey][inputIdShow] = inputValueShow;
+        $('#' + inputIdShow).attr("value", inputValueShow);
+    }
+
+    var postData = {
+        'stepForm': formStepKey,
+        'JSONData': JSONData[formStepKey],
+    }
+    
+    var jsonStr = JSON.stringify(postData);
+
+    if(postToSession) {
+        $.ajax({
+            method: "POST",
+            url: '../php/cache/inputForm.php',
+            contentType: 'application/json',
+            data: { JSONData: jsonStr },
+            success: function(response) {
+
+            },
+            error: function(err) {
+                console.error(err);
+            }
+        })
+    } else {
+        $.ajax({
+            method: "POST",
+            url: postPHPURL,
+            contentType: 'application/json',
+            dataType: 'json',
+            data: {
+                JSONData: jsonStr
+            },
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(err) {
+                console.error(err);
+            }
+        })
     }
 }
 
@@ -75,7 +114,7 @@ $(document).ready(function() {
         $(this).addClass("next_button_out");
     })
     
-    const totalRect = 8;
+    const totalRect = 4;
     var currentStep = 1;
     var counter = 1;
 
@@ -137,14 +176,45 @@ $(document).ready(function() {
         "formStep2": {
             "user_period": "",
             "photo_url": "",
+        },
+        "formStep4": {
+            "user_about": "",
+            "user_role": "",
         }
     }
 
     const formSteps = ["formStep_1", "formStep_2", "formStep_3", "formStep_4"];
     
+    function restoreFluxForm() {
+        const startForm = 1;
+        let userCookieImage = $.cookie("user_image");
+
+        if(userCookieImage) {
+            $(`#${startForm}stepFormRect`).removeClass('rect-user-active');
+            $(`#formStep${startForm}_item`).removeClass("active");
+            changeRectForm(2, true);
+            nextForm(2);
+        }
+    }
+    
+    restoreFluxForm();
+
     formSteps.forEach((formStepId) => {
         switch(formStepId) {
             case "formStep_1":
+                const inputIDS = ["user_complete_name", "user_mail", "user_passw", "user_passw_confirm", "user_register", "user_date"];
+                const inputCache = ["user_complete_name", "user_mail", "user_register", "user_date"]
+
+                const cookieObject = $.cookie("userForm1");
+
+                if(cookieObject) {
+                    const formObject = JSON.parse(cookieObject);
+                
+                    for(var counterCookie = 0; counterCookie <= inputCache.length; counterCookie++) {
+                        $(`#${inputCache[counterCookie]}`).attr('value', formObject[inputCache[counterCookie]]);
+                    }
+                }
+
                 $(`#formStep_1`).submit(function(e) {
                     e.preventDefault();
                     var sucessfullForm_one_one = true;
@@ -153,7 +223,6 @@ $(document).ready(function() {
                     var isChecked = false;
                     var passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).{8,}$/;
                     var numericPattern = /^[0-9]+$/;
-                    const inputIDS = ["user_complete_name", "user_mail", "user_passw", "user_passw_confirm", "user_register", "user_date"];
 
                     const currentDate = new Date();
 
@@ -179,7 +248,6 @@ $(document).ready(function() {
                                     errCode = isEmpty(inputId).errCode;
                                     isChecked = isEmpty(inputId).success;      
                                 } else if($("#user_passw_confirm").val() === ""){
-                                    console.log("CONFIRM PASSW ERR + " + inputId)
                                     errCode = 'emptyuser_passw_confirm';
                                     isChecked = isEmpty(inputId + "_confirm").success;
                                 } else if($("#user_passw").val() !== $("#user_passw_confirm").val()) {
@@ -213,8 +281,7 @@ $(document).ready(function() {
                             default:
                                 errCode = "success";
                                 break;   
-                        }
-                        
+                        }  
                     }
 
                     switch(errCode) {
@@ -277,29 +344,50 @@ $(document).ready(function() {
                             sucessfullForm_one = true;
                             break;
                     }
-                    /*for(var counterShow = 0; counterShow < inputIDS.length; counterShow++) {
-                        var inputIdShow = inputIDS[counterShow];
-                        var inputValueShow = $('#' + inputIdShow).val();
-                        dataUser.formStep1[inputIdShow] = inputValueShow;
-                    }*/
-                    insertDataJson(inputIDS, dataUser, 'formStep1');
                     
                     if(sucessfullForm_one) {
+                        const inputValid = ["user_complete_name", "user_mail", "user_passw", "user_register", "user_date"];
+
+                        insertDataJson(inputValid, dataUser, 'formStep1', '../php/cache/inputForm.php', true);
                         changeRectForm(1, true);
                         nextForm(1);
                     }
-                    })
+                })
             break;
             case "formStep_2":
+                var userCookieImage = $.cookie("user_image");
+
+                if(userCookieImage) {
+                    $("#profilePreview").attr("src", userCookieImage);
+                } else {
+                    $("#profilePreview").attr("src", "../images/defaultProfile.png");
+                }
+
                 $(`#formStep_2`).submit(function(e) {
                     e.preventDefault();
                     const currentSubmitter = e.originalEvent.submitter.id;
+                    
                     if(currentSubmitter === "previous_button_form_2") {
                         changeRectForm(2, false);
                     } else {
+                        var formData = new FormData(this);
+
+                        $.ajax({
+                            type: "POST",
+                            url: "../php/upload.php",
+                            data: formData,
+                            contentType: false,
+                            processData: false,
+                            success: function (response) {                  
+                            },
+                            error: function (error) {
+                                console.log(error);
+                            }
+                        });
+
                         changeRectForm(2, true);
-                        nextForm(2);
-                    }
+                        nextForm(2); 
+                    };
                 })
             break;
             case "formStep_3":
@@ -309,8 +397,49 @@ $(document).ready(function() {
                     if(currentSubmitter === "previous_button_form_3") {
                         changeRectForm(3, false);
                     } else {
-                        changeRectForm(3, true);
-                        nextForm(3);
+                        var isSuccessForm =  false;
+                        var isError = false;
+                        var errCode = "";
+
+                        const inputIDS = ["user_period, chooseProfileImg"];
+                        const inputIDValid = ["user_period"];
+
+                        for(var counterId = 0; counterId < inputIDS.length; counterId++) {
+                            var inputId = inputIDS[counterId];
+                            var inputValue = $("#" + inputId).val();
+
+                            if(isError) {
+                                break;
+                            }
+
+                            switch(inputId) {
+                                case "user_period":
+                                    if($("#user_period").val() === "Periodo") {
+                                        errCode = "nouser_perioded"
+                                        isError = true;
+                                    } else isError = false; 
+                                break;
+                                default:
+                                    errCode = "success";
+                                break;   
+                            }
+                        }
+
+                        switch(errCode) {
+                            case "user_period":
+                                showErr("Você não selecionou um periodo válido!");
+                                isSuccessForm = false;
+                                isError = false;
+                                break;
+                            case "success":
+                                isSuccessForm = true;
+                                break;
+                        }
+                        if(isSuccessForm) {
+                            insertDataJson(inputIDValid, dataUser, "formStep3", null, true)
+                            changeRectForm(3, true);
+                            nextForm(3);
+                        }
                     }
                 })
             break;

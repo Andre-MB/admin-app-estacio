@@ -1,3 +1,23 @@
+<?php
+include("../php/db/connection.php");
+
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
+session_start();
+
+if(!isset($_SESSION['isSubmit'])) {
+    $currentStatus = 'none';
+    $_SESSION['isSubmit'] = $currentStatus;
+}
+
+if (!isset($_SESSION['tokenUser'])) {
+    $token = uniqid();
+    $_SESSION['tokenUser'] = $token;
+} else {
+    $token = $_SESSION['tokenUser'];
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -9,7 +29,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!---->
     <!--Jquery-->
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <link rel="stylesheet" href="../css/formSteps.css">
 </head>
 <body>
@@ -31,18 +52,18 @@
                         <div class="upper_personal_data_user">
                             <section>
                                 <p>Nome Completo: </p>
-                                <input type="text" id="user_complete_name" placeholder="Raimundo">
+                                <input type="text" id="user_complete_name" value="" placeholder="Raimundo">
                             </section>
                             <section>
                                 <p>E-mail: </p>
-                                <input type="email" id="user_mail" placeholder="example@gmail.com">
+                                <input type="email" id="user_mail" value="" placeholder="example@gmail.com">
                             </section>
                                 <div class= "contain2">
                                     <div>                                    
                                         <section>
                                             <label for="passw"> Senha: </label>
                                             <div class="input-box-passw">
-                                                <input type="password" id="user_passw" placeholder="*******">
+                                                <input type="password" id="user_passw" value="" placeholder="*******">
                                                 <svg xmlns='http://www.w3.org/2000/svg' id="seePassw" width='32' height='32' fill='currentColor' class='bi bi-eye-fill' viewBox='0 0 16 16'>
                     <path d='M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z'></path>
                     <path d='M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z'></path>
@@ -63,11 +84,11 @@
                                     <div>
                                     <section>
                                             <p>Matrícula: </p>
-                                            <input type="text" id="user_register" placeholder="Matrícula" maxlength="12">
+                                            <input type="text" id="user_register" placeholder="Matrícula" value="" maxlength="12">
                                     </section>
                                     <section>
                                             <p>Data de nascimento: </p>
-                                            <input type="date" id="user_date">
+                                            <input type="date" id="user_date" value="">
                                     </section>
                                     </div>           
                                 </div>                          
@@ -78,14 +99,14 @@
                     </form>
                 </div>
                 <div class="flex-column form-container justify-content-between" id="formStep2_item">
-                    <form id="formStep_2">
+                    <form id="formStep_2" method="POST" enctype="multipart/form-data">
                         <div class="container d-flex align-items-center justify-content-between h-100">
-                            <div class="d-flex container justify-content-center align-items-center h-100" style="width: 30%; height: 100%;">
-                                <img src="../images/defaultProfile.png" id="profilePreview" style="width: 300px; height: 300px;" alt="defaultProfile">
+                            <div class="d-flex container justify-content-center align-items-center h-100" style="width: 30%; height: 100%;">                           
+                                <img src='../images/defaultProfile.png' id='profilePreview' style='width: 300px; height: 300px;' alt='defaultProfile'>
                             </div>
                             <div class="d-flex justify-content-center align-items-start flex-column">
                                 <h3>Qual é o seu período</h3>
-                                <select name="period" id="periodSelect" class="w-100 text-center">
+                                <select name="period" id="user_period" class="w-100 text-center">
                                     <option value="" disabled>Periodo</option>
                                     <option value="">1</option>
                                     <option value="">2</option>
@@ -98,12 +119,12 @@
                                 </select>
                                 <div class="d-flex mt-5 border border-dark w-100 justify-content-center align-items-center user-select-none" style="height: 2em; cursor: pointer;">
                                     <label for="chooseProfileImg" class="w-100 text-center" style="cursor: pointer;">Foto de Perfil</label>
-                                    <input type="file" id="chooseProfileImg" style="display: none;" onchange="previewProfile(event)">
+                                    <input accept="image/png image/webp, image/jpeg, image/jpg" type="file" id="chooseProfileImg" name="imageUser" style="display: none;" onchange="previewProfile(event)">
                                 </div>
                             </div>
                         </div> 
                         <div class="d-flex align-items-center justify-content-end container-fluid">
-                            <button id="previous_button_form_2" class="d-flex align-items-center justify-content-center next_button_in" type="submit">Anterior</button>
+                            <button id="previous_button_form_2" class="d-flex align-items-center justify-content-center next_button_in">Anterior</button>
                             <button id="next_button_2" class="d-flex align-items-center justify-content-center next_button_in" type="submit" name="btnForm_2">Próximo</button>
                         </div>           
                     </form>
@@ -173,5 +194,8 @@
             </div>
         </div>
     </div>
+    <script>
+        var isSubmit = "<?php echo $_SESSION['isSubmit']; ?>";
+    </script>
     <script src="../js/register.js"></script>
 </body>
